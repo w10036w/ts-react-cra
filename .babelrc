@@ -1,0 +1,24 @@
+{
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "",
+        "camel2DashComponentName": true,
+        "style": true
+      },
+      "ant-mobile"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "lodash",
+        "libraryDirectory": "",
+        "camel2DashComponentName": false,
+        "style": true
+      },
+      "lodash"
+    ]
+  ]
+}
