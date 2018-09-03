@@ -11,6 +11,10 @@ for ts in (2 .. 15)
 // opacity 0
 .fade-enter, .fade-leave-active
   opacity 0
+  z-index 1
+.fade-enter-active
+  opacity 1
+  transition opacity 250ms ease-in
 .slideRight-enter, .slideRight-leave
   opacity 0
   transform translateX(5%)

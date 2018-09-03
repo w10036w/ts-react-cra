@@ -1,0 +1,57 @@
+enum Role {
+  ADMIN
+  EDITOR
+  GUEST
+}
+
+input UserInput {
+  username: String
+  email: String
+  displayName: String
+  password: String
+  avatar: String
+  role: Role
+  bio: String
+  hidden: Boolean
+}
+
+type User @cacheControl(maxAge: 15) {
+  id: ID!
+  username: String!
+  email: String!
+  displayName: String
+  avatar: String
+  role: Role
+  bio: String
+  hidden: Boolean
+  createAt: DateTime
+  updateAt: DateTime
+  # extend
+  articles(limit: Int = 5, skip: Int = 0, sort: String): [Article]
+}
+
+type Query {
+  user(
+    id: ID
+    username: String
+    email: String
+    displayName: String
+    select: String @deprecated(reason: "mongo only")
+  ): User # @cacheControl(maxAge: 5)
+  users(
+    displayName: String
+    role: Role @uppercase
+    bio: String
+    limit: Int = 5
+    skip: Int = 0
+    sort: String
+    select: String
+    populate: String
+  ): [User] @cacheControl(maxAge: 60)
+}
+
+type Mutation {
+  createUser(input: UserInput): User
+  updateUser(id: ID!, input: UserInput): User
+  deleteUsers(ids: [ID]!): String
+}

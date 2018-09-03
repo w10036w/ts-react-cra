@@ -147,6 +147,7 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               compact: true,
+              presets: [require.resolve('babel-preset-react-app')],
             },
           },
 
@@ -300,7 +301,8 @@ module.exports = {
     // Perform type checking and linting in a separate process to speed up compilation
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      watch: paths.appSrc,
+      // watch: paths.appSrc,
+      watch: false,
       tsconfig: paths.appTsConfig,
       tslint: paths.appTsLint,
     }),

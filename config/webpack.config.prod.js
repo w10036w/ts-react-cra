@@ -263,13 +263,12 @@ module.exports = {
                             flexbox: 'no-2009',
                           }),
                         ],
+                        sourceMap: shouldUseSourceMap,
                       },
                     },
                     {
                       loader: require.resolve('stylus-loader'),
                       options: {
-                        importLoaders: 1,
-                        minimize: true,
                         sourceMap: shouldUseSourceMap,
                       },
                     },

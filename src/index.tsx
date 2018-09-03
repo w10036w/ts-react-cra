@@ -1,8 +1,13 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+// import { hot } from 'react-hot-loader'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import './styles/index.styl'
 
-ReactDOM.render(<App />, document.getElementById('root') as HTMLElement)
+// declare var module: any
+
+// const HotApp = hot(module)(App)
+
+render(<App />, document.getElementById('root') as HTMLElement)
 registerServiceWorker()

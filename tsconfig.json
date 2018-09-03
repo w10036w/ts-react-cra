@@ -1,10 +1,18 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "experimentalDecorators": true,
+    "paths": {
+      "~asset": ["src/assets"],
+      "~comp/*": ["src/components/*"],
+      "~const": ["src/constants"],
+      "~type": ["src/types"],
+      "~gql": ["src/gql"]
+    },
     "outDir": "build/dist",
     "module": "esnext",
-    "target": "es5",
-    "lib": ["es6", "es7", "dom"],
+    "target": "es6",
+    "lib": ["es6", "es7", "dom", "esnext"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
